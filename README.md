@@ -5,3 +5,7 @@
 # dependencies
 - download beautifulsoup ```pip install beautifulsoup4```
 - download flask ```pip install flask```
+
+# Run
+### ```python3 main.py``` on Mac
+### ```python main.py``` on Windows
