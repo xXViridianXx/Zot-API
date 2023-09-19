@@ -71,8 +71,7 @@ def scrapePages(departments, currentTerm, url):
 
         data = {
             'YearTerm': currentTerm,
-            'Dept': departments[i]
-        }
+            'Dept': departments[i]        }
 
         coursesInfo = {}
         courses = {}
@@ -90,7 +89,8 @@ def scrapePages(departments, currentTerm, url):
 
             tableData = None
 
-            subject = departments[i]
+            subjectSplit = departments[i].split()
+            subject = '_'.join(subjectSplit)
 
             for i in tableRows:
                 cache = i.text.strip().split()
@@ -103,9 +103,10 @@ def scrapePages(departments, currentTerm, url):
                         cache.pop()
                     for i in cache:
                         courseTitle = ' '.join([cache[0], cache[1]])
-                        courseName = ' '.join(cache[index]
+                        courseName = '_'.join(cache[index]
                                             for index in range(2, len(cache)))
                     coursesInfo['title'] = courseTitle
+                    # print(courseName)
                     classes = {}
 
                 else:
