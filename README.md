@@ -14,8 +14,14 @@
 - Once the server is running open:
 - ```http://127.0.0.1:5000``` or click the server link
 - Once the server is loaded you can now get information on classes
-- ex. ```http://127.0.0.1:5000/subjects/compsci```
-- ex. ```http://127.0.0.1:5000/subjects/compsci/classes/computer_graphics```
+- ex. ```http://127.0.0.1:5000/subjects/compsci``` to get all classes in the subject
+- ex. ```http://127.0.0.1:5000/subjects/compsci/classes/computer_graphics``` to get specific class
+
+# TODO
+- Add more paths
+- Get real-time data every time a user searches something
+- make code cleaner
+- release
 
 # View
 
@@ -64,3 +70,4 @@
     "title": "CompSci 253P"
     ...
   }```
+
