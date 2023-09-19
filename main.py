@@ -31,11 +31,9 @@ def Home():
      return "Welcome to UCI's Current Courses API"
 
 @app.route("/subjects/<subject>")
-
 def getSubject(subject):
         global allCourses
         subject = subject.upper()
-         
         if subject in allCourses:
             return allCourses[subject], 200
         return f'Error: Searched for {subject} but nothing was found. Please check spelling', 400
@@ -55,7 +53,7 @@ def getClass(subject, classname):
         courseSubject = allCourses[subject]
         if classname in courseSubject:
             return courseSubject[classname], 200
-        return f'Error: Searched for {subject}/{classname} but nothing was found. Please check spelling', 400
+        return f'Error: Searched for {subject} {classname} but nothing was found. Please check spelling', 400
 
 
 if __name__ == "__main__":
