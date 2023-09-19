@@ -9,3 +9,7 @@
 # Run
 ### ```python3 main.py``` on Mac
 ### ```python main.py``` on Windows
+
+# Usage
+- Once the server is running open:
+- ```http://127.0.0.1:5000``` or click the server link
