@@ -3,4 +3,5 @@
 - All scraped data is stored in a JSON file and later used for a Flask application
 
 # dependencies
-- download beautifulsoup '''pip install beautifulsoup4'''
+- download beautifulsoup ```pip install beautifulsoup4```
+- download flask ```pip install flask```
