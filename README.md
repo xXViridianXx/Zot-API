@@ -25,7 +25,8 @@
 
 # View
 
-```{
+```
+{
   "ADV_PROG_PROB_SOLV": {
     "codes": {
       "35260": {
@@ -69,5 +70,6 @@
     },
     "title": "CompSci 253P"
     ...
-  }```
+}
+  ```
 
