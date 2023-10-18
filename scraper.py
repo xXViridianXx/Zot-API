@@ -66,10 +66,10 @@ def getDelayedTime():
     return delay
 
 # splits a string and joins based on seperator
-def parseAndJoin(givenString, separator):
-    splitString = givenString.split()
+def parseAndJoin(givenString, splitter, separator):
+    splitString = givenString.split(splitter)
     joinedString = separator.join(splitString)
-    return joinedString
+    return [joinedString, len(splitString)]
 
 # removes labels at end of list
 def removeEndLabel(classHeaderInfo, label):
@@ -79,12 +79,15 @@ def removeEndLabel(classHeaderInfo, label):
 
 # gets the class names and title
 # returns None if fails
-def getClassNames(firstChar, cache):
+def getClassNames(firstChar, cache, subjectLength):
     classNames = None
+    classNumber = 2 if subjectLength > 1 else 1
+
     if firstChar.isalpha():
         cache = removeEndLabel(cache, '(Prerequisites)')
-        courseTitle = ' '.join([cache[0], cache[1]])
-        courseName = '_'.join(cache[index] for index in range(2, len(cache)))
+        courseTitle = ' '.join([cache[0], cache[classNumber]])
+        # print(cache)
+        courseName = '_'.join(cache[index] for index in range(classNumber+1, len(cache)))
         classNames = (courseTitle, courseName)
     return classNames
 
@@ -137,11 +140,11 @@ def stripAndSplit(item):
     return item.strip().split()
 
 # deteremines if table data is class names or info
-def isClassName(item):
+def isClassName(item, subjectLength):
     cache = stripAndSplit(item.text)
     firstChar = cache[0]
     firstString = firstChar[0]
-    classNames = getClassNames(firstString, cache)
+    classNames = getClassNames(firstString, cache, subjectLength)
     return classNames
 
 # returns just the strign containg the time
@@ -241,13 +244,20 @@ def scrapePages(departments, currentTerm, url):
 
         tableData = None
 
-        subject = parseAndJoin(departments[i], '_')
+        subjectData = parseAndJoin(departments[i], ' ', '_')
+        subject = subjectData[0]
+
+        if '/' in subject:
+            splitString =  subject.split('/')
+            subject = '_'.join(splitString)
+
+        subjectLength = subjectData[1]
 
         courseTitle = ''
         courseName = ''
         for i in tableRows:
 
-            classNames = isClassName(i)
+            classNames = isClassName(i, subjectLength)
             if classNames:
                 courseTitle, courseName = classNames[0], classNames[1]
                 coursesInfo = {}
@@ -275,8 +285,6 @@ def scrapePages(departments, currentTerm, url):
     return allCourses
 
 
-def createJsonFile(AllCourses):
-    fileName = "scrapedQuarter.json"
-
-    with open(fileName, "w") as json_file:
+def createJsonFile(AllCourses, file):
+    with open(file, "w") as json_file:
         json.dump(AllCourses, json_file)
