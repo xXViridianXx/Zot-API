@@ -15,15 +15,15 @@
 - https://1tgg4m2pra.execute-api.us-east-2.amazonaws.com/prod/courses?subject=COMPSCI&id=161
 
 # Flask usage
-## Dependencies
+> ## Dependencies
 - download beautifulsoup ```pip install beautifulsoup4```
 - download flask ```pip install flask```
 
-## Run
+> ## Run
 ### ```python3 main.py``` on Mac
 ### ```python main.py``` on Windows
 
-## Usage
+> ## Usage
 - Once the server is running open:
 - ```http://127.0.0.1:5000``` or click the server link
 - Once the server is loaded you can now get information on classes
