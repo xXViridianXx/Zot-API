@@ -6,11 +6,11 @@
 - go to the link:
 - https://1tgg4m2pra.execute-api.us-east-2.amazonaws.com/prod/
 
-- ## Search for all courses in a subject:
+> ## Search for all courses in a subject:
 - how to get all classes in COMPSCI
 - https://1tgg4m2pra.execute-api.us-east-2.amazonaws.com/prod/courses?subject=COMPSCI
 
-- ## Search for a specific course:
+> ## Search for a specific course:
 - getting info only on COMPSCI 161:
 - https://1tgg4m2pra.execute-api.us-east-2.amazonaws.com/prod/courses?subject=COMPSCI&id=161
 
