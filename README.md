@@ -1,7 +1,7 @@
 # Zot API
 - a bot that scrapes UCI's most recent quarter and gets all available information about classes and their status
 - the lambda function runs every 5 minutes——hopefully I don't get billed ;)
-- All scraped data is stored in a JSON file and later used for a Flask application
+- All scraped data is stored in a JSON file and later displayed on AWS
 
 # AWS usage
 - go to the link:
