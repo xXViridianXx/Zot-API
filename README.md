@@ -2,28 +2,41 @@
 - a bot that scrapes UCI's most recent quarter and gets all available information about classes and their status
 - All scraped data is stored in a JSON file and later used for a Flask application
 
-# Dependencies
+# AWS usage
+- go to the link:
+- ```[https://1tgg4m2pra.execute-api.us-east-2.amazonaws.com/prod/](https://1tgg4m2pra.execute-api.us-east-2.amazonaws.com/prod/)```
+
+## Search for all courses in a subject:
+- how to get all classes in COMPSCI
+- ```[https://1tgg4m2pra.execute-api.us-east-2.amazonaws.com/prod/](https://1tgg4m2pra.execute-api.us-east-2.amazonaws.com/prod/courses?subject=COMPSCI)```
+
+## Search for a specific course:
+- getting info only on COMPSCI 161:
+- ```[https://1tgg4m2pra.execute-api.us-east-2.amazonaws.com/prod/courses?subject=COMPSCI&id=161](https://1tgg4m2pra.execute-api.us-east-2.amazonaws.com/prod/courses?subject=COMPSCI&id=161)```
+
+# Flask usage
+## Dependencies
 - download beautifulsoup ```pip install beautifulsoup4```
 - download flask ```pip install flask```
 
-# Run
+## Run
 ### ```python3 main.py``` on Mac
 ### ```python main.py``` on Windows
 
-# Usage
+## Usage
 - Once the server is running open:
 - ```http://127.0.0.1:5000``` or click the server link
 - Once the server is loaded you can now get information on classes
 - ex. ```http://127.0.0.1:5000/subjects/compsci``` to get all classes in the subject
 - ex. ```http://127.0.0.1:5000/subjects/compsci/classes/computer_graphics``` to get specific class
 
-# TODO
+## TODO
 - Add more paths
 - Get real-time data every time a user searches something
 - make code cleaner
 - release
 
-# View
+## View
 
 ```
 {
