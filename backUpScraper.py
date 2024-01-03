@@ -30,13 +30,7 @@ def getDepartment(departmentField):
 # get the current term
 def getTerm(termField):
     option = termField.find('option')
-    count = 0
-    latest = ""
-    while "Quarter" not in latest and count < 10:
-        currentTerm = option.find_next('option') 
-        latest = currentTerm.text
-        count += 1
-    return currentTerm['value']
+    return option['value']
 
 
 # gets the list of days the class is available
@@ -103,19 +97,20 @@ def storeRowContent(tableData):
 
     # data in form of
     # [classStatus, classCode, classType, classSection, classUnits, classInstructors
-    # inperson/remote? ,startTime, endTime, days, classLocation, maxEnrollment, enrolled, waitlist]
+    # ,startTime, endTime, days, classLocation, maxEnrollment, enrolled, waitlist]
     rowContent = []
     for i in range(-1, 10):
         if i == 4:
             instructors = parseTeachers(tableData, i, '.') 
             rowContent.append(instructors)
-        elif i == 6:
-            when = stripAndSplit(getTableDataText(tableData, i))
+        elif i == 5:
+            when = stripAndSplit(getTableDataText(tableData, 5))
             rowContent.extend(getClassTimes(when))
         elif i == 8:
             enrolled = splitTableData(tableData, i, '/')[0]
             rowContent.append(enrolled)
         else:
+
             columnData = getTableDataText(tableData, i)
             rowContent.append(columnData)
     
@@ -130,7 +125,7 @@ def getRowContentData(rowContent, i):
 # ht[0] was classStatus
 # but ht[1] was class code, just removed it when adding to ht
 def setAllSectionsInfo(sections, rowContent):
-    keys = ['classType', 'classSection', 'classUnits', 'classInstructors', 'modality',
+    keys = ['classType', 'classSection', 'classUnits', 'classInstructors',
      'startTime', 'endTime', 'days', 'classLocation', 'maxEnrollment', 'enrolled', 'waitlist']
     
     classStatus = getRowContentData(rowContent, 0)
@@ -206,11 +201,9 @@ def parseTeachers(tableData, index, seperator):
     splitDataString = removeEmptyString(splitDataString)
     substring = splitDataString[0]
     checkFor = 'STAFF'
-    count = 0
-    while checkFor in substring and len(substring) > 5 and count < 3:
-       substring = substring[5:]
-       count += 1
-    splitDataString[0] = substring
+    if checkFor in substring and len(substring) > 5:
+        splitDataString[0] = substring[5:]
+
     return splitDataString
 
 

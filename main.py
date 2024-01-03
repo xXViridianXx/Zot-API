@@ -1,6 +1,4 @@
 from flask import Flask
-from apscheduler.schedulers.background import BackgroundScheduler
-import threading
 import os
 from  scraper import *
 import json
@@ -9,7 +7,6 @@ app = Flask(__name__)
 
 allCourses = None
 
-scheduler = BackgroundScheduler()
 
 FILENAME = 'scrapedQuarter.json'
 TERMFILE = 'currentTerm.txt'
@@ -45,7 +42,7 @@ def updateZOTAPI(FILENAME, TERMFILE):
     termField = getTermFields(soup)
 
     currentTerm = getTerm(termField)
-    print(currentTerm, lastTerm)
+    print(f"currentTerm: {currentTerm}, lastTerm: {lastTerm}")
 
     if lastTerm != currentTerm:
         print(f"Term was changed, now scrapping...")
@@ -76,17 +73,17 @@ def getSubject(subject):
             return allCourses[subject], 200
         return f'Error: Searched for {subject} but nothing was found. Please check spelling', 400
        
-@app.route("/<subject>/<classname>") 
-def getClass(subject, classname):
+@app.route("/<subject>/<classnumber>") 
+def getClass(subject, classnumber):
    global allCourses
    subject = getSubject(subject)
-   classname = classname.upper()
+   classnumber = classnumber.upper()
 
    if subject[1] != 200:
         return subject[0]
-   if classname in subject[0]:
-        return subject[0][classname], 200
-   return f'Error: Searched for {subject} {classname} but nothing was found. Please check spelling', 400
+   if classnumber in subject[0]:
+        return subject[0][classnumber], 200
+   return f'Error: Searched for {subject} {classnumber} but nothing was found. Please check spelling', 400
 
 
 if __name__ == "__main__":
