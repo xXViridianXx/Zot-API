@@ -7,6 +7,7 @@
 - go to the link:
 - https://1tgg4m2pra.execute-api.us-east-2.amazonaws.com/prod/
 - remember to load the json before using it!
+- Note: some subjects might not have any classes because they aren't offering anything
 
 > ## Search for all courses in a subject:
 > - how to get all classes in COMPSCI
