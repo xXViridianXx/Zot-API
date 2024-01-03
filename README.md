@@ -37,49 +37,86 @@
 
 ```
 {
-  "ADV_PROG_PROB_SOLV": {
-    "codes": {
-      "35260": {
-        "days": [
-          "Tu",
-          "Th"
-        ],
-        "endTime": "4:50p",
-        "enrolled": "66",
-        "instructors": [
-          "KLEFSTAD, R"
-        ],
-        "location": "HH 178",
-        "maxEnrollment": "131",
-        "section": "A",
-        "startTime": "3:30",
-        "status": "OPEN",
-        "type": "Lec",
-        "units": "4",
-        "waitlist": "0"
-      },
-      "35261": {
-        "days": [
-          "W"
-        ],
-        "endTime": "11:50",
-        "enrolled": "66",
-        "instructors": [
-          "MOHADDESI, S",
-          "KLEFSTAD, R"
-        ],
-        "location": "HG 1800",
-        "maxEnrollment": "131",
-        "section": "1",
-        "startTime": "11:00",
-        "status": "OPEN",
-        "type": "Lab",
-        "units": "0",
-        "waitlist": "0"
-      }
-    },
-    "title": "CompSci 253P"
-    ...
+    "title": "DES&ANALYS OF ALGOR",
+    "sections": {
+        "34230": {
+            "classStatus": "Waitl",
+            "classType": "Lec",
+            "classSection": "A",
+            "classUnits": "4",
+            "classInstructors": [
+                "SHINDLER, M"
+            ],
+            "modality": "In-Person",
+            "startTime": "10:00",
+            "endTime": "10:50",
+            "days": [
+                "M",
+                "W",
+                "F"
+            ],
+            "classLocation": "HIB 100",
+            "maxEnrollment": "319",
+            "enrolled": "319"
+        },
+        "34231": {
+            "classStatus": "Waitl",
+            "classType": "Dis",
+            "classSection": "1",
+            "classUnits": "0",
+            "classInstructors": [
+                "SHINDLER, M"
+            ],
+            "modality": "In-Person",
+            "startTime": "5:00",
+            "endTime": "5:50p",
+            "days": [
+                "M",
+                "W"
+            ],
+            "classLocation": "HG 1800",
+            "maxEnrollment": "110",
+            "enrolled": "110"
+        },
+        "34232": {
+            "classStatus": "Waitl",
+            "classType": "Dis",
+            "classSection": "2",
+            "classUnits": "0",
+            "classInstructors": [
+                "SHINDLER, M"
+            ],
+            "modality": "In-Person",
+            "startTime": "6:00",
+            "endTime": "6:50p",
+            "days": [
+                "M",
+                "W"
+            ],
+            "classLocation": "HG 1800",
+            "maxEnrollment": "110",
+            "enrolled": "110"
+        },
+        "34233": {
+            "classStatus": "Waitl",
+            "classType": "Dis",
+            "classSection": "3",
+            "classUnits": "0",
+            "classInstructors": [
+                "SHINDLER, M"
+            ],
+            "modality": "In-Person",
+            "startTime": "7:00",
+            "endTime": "7:50p",
+            "days": [
+                "M",
+                "W"
+            ],
+            "classLocation": "HG 1800",
+            "maxEnrollment": "99",
+            "enrolled": "99"
+        }
+    }
 }
   ```
 
