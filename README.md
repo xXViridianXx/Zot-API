@@ -42,6 +42,7 @@
 ```
 {
     "title": "DES&ANALYS OF ALGOR",
+    "name": "CompSci 161",
     "sections": {
         "34230": {
             "classStatus": "Waitl",
